@@ -1,0 +1,102 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>任为生快倒计时</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="favicon.ico" rel="shortcut icon">
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden_dev.js"></script>
+    <script type="text/javascript" src="js/functions_dev.js"></script>
+</head>
+
+<body>
+	<div id="mainDiv">
+		<div id="content">
+			<!--
+			<div id="code">
+				<span class="comments">/**</span><br />
+				<span class="space"/><span class="comments">* 昀昀姐姐,欢迎回家~</span><br />
+				<span class="space"/><span class="comments">* 随便写了些话~.</span><br />
+				<span class="space"/><span class="comments">*/</span><br />
+				<span class="comments">欢欢在摇着尾巴等到你回家.</span><br />
+				解放碑的各种好吃的在等着你来吃~<br />
+				<span class="comments">嘉陵江边的水景非常的秀美</span><br />
+				落日的余辉会把你的大脸衬托得红彤彤的<br />
+				<span class="comments">虽然天气嘿热,但是有火辣火辣的火锅</span><br />
+				味道香喷喷的<br />
+				<span class="comments">外公也在梅溪街道等你回来</span><br />
+				翘首以盼哟<br />
+				<span class="keyword">大家</span> 都很想 <span class="keyword">你</span>:<br />
+				<span class="placeholder"/><span class="comments">多耍哈</span><br />
+				<span class="placeholder"/>多修整哈哈<br />
+				<span class="placeholder"/><span class="comments">到处耍到处逛</span><br />
+				<span class="placeholder"/>我以后每天早睡一个小时<br />
+				<br />
+				<span class="comments"></span>希望你回来那天天气晴朗<br />
+				等待昀昀姐姐的到来<br />
+				心情愉快~<br />
+			</div>-->
+            <div id="loveHeart">
+                <canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						离任为生日还有:
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						开心等待生日吧!<br/>
+						<!--<div class="signature">- water</div>-->
+					</div>
+				</div>
+
+            </div>
+
+		</div>
+
+	</div>
+	<script type="text/javascript">
+		var offsetX = 0;
+		var offsetY = 0;
+		var together = new Date();
+		together.setFullYear(2016, 7, 2);
+		together.setHours(0);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "任为为你可以换个好点的浏览器比如chrome之类的..";
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 500);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+
+	</script>
+	<div id="mask"></div>
+
+
+</body>
+</html>
